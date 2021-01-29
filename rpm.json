@@ -1,0 +1,7 @@
+{
+  "publish": {
+    "PACKAGE": "hadolint",
+    "GH_USER": "jc21-rpm",
+    "VERSION": "1.19.0"
+  }
+}
