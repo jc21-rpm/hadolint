@@ -35,6 +35,9 @@ stack install --local-bin-path $RPM_BUILD_ROOT%{_bindir}
 %{_bindir}/%{name}
 
 %changelog
+* Sat Apr 3 2021 Jamie Curnow <jc@jc21.com> 2.1.0-1
+- https://github.com/hadolint/hadolint/releases/tag/v2.1.0
+
 * Thu Mar 25 2021 Jamie Curnow <jc@jc21.com> 2.0.0-1
 - https://github.com/hadolint/hadolint/releases/tag/v2.0.0
 
