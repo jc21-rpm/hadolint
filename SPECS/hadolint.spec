@@ -5,7 +5,7 @@
 %global git_archive_dir %{git_repo}-%{version}
 
 Name:          %{git_repo}
-Version:       2.5.0
+Version:       2.6.0
 Release:       1%{?dist}
 Summary:       A smarter Dockerfile linter
 License:       GPL 3.0
@@ -35,6 +35,9 @@ stack install --local-bin-path $RPM_BUILD_ROOT%{_bindir}
 %{_bindir}/%{name}
 
 %changelog
+* Mon Jul 5 2021 Jamie Curnow <jc@jc21.com> 2.6.0-1
+- https://github.com/hadolint/hadolint/releases/tag/v2.6.0
+
 * Mon Jun 14 2021 Jamie Curnow <jc@jc21.com> 2.5.0-1
 - https://github.com/hadolint/hadolint/releases/tag/v2.5.0
 
