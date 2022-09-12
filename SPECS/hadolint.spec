@@ -7,10 +7,7 @@ Release:       1
 Summary:       A smarter Dockerfile linter
 License:       GPL 3.0
 URL:           https://github.com/%{gh_user}/%{name}
-Source:        https://github.com/%{gh_user}/%{name}/archive/v%{version}.tar.gz
-BuildRequires: glibc-static gmp-devel gmp-c++
-#ncurses-libs
-#
+Source:        https://github.com/%{gh_user}/%{name}/releases/download/v%{version}/hadolint-Linux-x86_64
 
 %description
 A smarter Dockerfile linter that helps you build best practice Docker images.
@@ -18,19 +15,13 @@ The linter is parsing the Dockerfile into an AST and performs rules on top of
 the AST. It is standing on the shoulders of ShellCheck to lint the Bash code
 inside RUN instructions.
 
-%prep
-%setup -q -n %{name}-%{version}
-
-%build
-LANG=en_US.UTF-8 stack build
-
 %install
-install -d -m 755 $RPM_BUILD_ROOT%{_bindir}
-stack install --local-bin-path $RPM_BUILD_ROOT%{_bindir}
+rm -rf %{buildroot}
+mkdir -p %{buildroot}%{_bindir}
+install -Dm0755 %{SOURCE0} %{buildroot}%{_bindir}/%{name}
 
 %files
-%license LICENSE
-%doc README.md docs/*.md
+%defattr(-,root,root,-)
 %{_bindir}/%{name}
 
 %changelog

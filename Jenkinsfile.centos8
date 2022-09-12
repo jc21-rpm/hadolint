@@ -12,7 +12,7 @@ pipeline {
 	stages {
 		stage('Build') {
 			steps {
-				sh './build 8 haskell'
+				sh './build 8'
 			}
 		}
 		stage('Sign') {
