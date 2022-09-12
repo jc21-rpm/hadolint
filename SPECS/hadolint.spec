@@ -1,17 +1,16 @@
 %global debug_package %{nil}
-%global git_owner hadolint
-%global git_repo hadolint
-%global git_archive_file v%{version}.tar.gz
-%global git_archive_dir %{git_repo}-%{version}
+%global gh_user hadolint
 
-Name:          %{git_repo}
+Name:          hadolint
 Version:       2.10.0
-Release:       1%{?dist}
+Release:       1
 Summary:       A smarter Dockerfile linter
 License:       GPL 3.0
-Url:           https://github.com/%{git_owner}/%{git_repo}
-Source0:       %{url}/archive/%{git_archive_file}
-BuildRequires: glibc-static
+URL:           https://github.com/%{gh_user}/%{name}
+Source:        https://github.com/%{gh_user}/%{name}/archive/v%{version}.tar.gz
+BuildRequires: glibc-static gmp-devel gmp-c++
+#ncurses-libs
+#
 
 %description
 A smarter Dockerfile linter that helps you build best practice Docker images.
@@ -20,10 +19,10 @@ the AST. It is standing on the shoulders of ShellCheck to lint the Bash code
 inside RUN instructions.
 
 %prep
-%setup -q -n %{git_archive_dir}
+%setup -q -n %{name}-%{version}
 
 %build
-stack build
+LANG=en_US.UTF-8 stack build
 
 %install
 install -d -m 755 $RPM_BUILD_ROOT%{_bindir}
