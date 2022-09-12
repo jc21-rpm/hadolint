@@ -54,7 +54,7 @@ for SPECFILE in SPECS/*.spec; do
 			# Folder setup
 			echo -e "${BLUE}❯ ${YELLOW}Folder setup${RESET}"
 			rm -rf RPMS/* SRPMS/*
-			mkdir -p {RPMS,SRPMS,DEPS,SPECS,SOURCES,BUILD}
+			mkdir -p {RPMS,SRPMS,DEPS,SPECS,SOURCES}
 			chmod -R 777 {RPMS,SRPMS}
 
 			# Pull latest builder image
@@ -87,7 +87,6 @@ for SPECFILE in SPECS/*.spec; do
 			RPMBUILD=/home/rpmbuilder/rpmbuild
 			docker run --rm \
 				--name "rpmbuild-${BUILD_TAG:-centos${CENTOS_VERSION}-${PACKAGE}}" \
-				-v "${CWD}/BUILD:${RPMBUILD}/BUILD" \
 				-v "${CWD}/DEPS:${RPMBUILD}/DEPS" \
 				-v "${CWD}/RPMS:${RPMBUILD}/RPMS" \
 				-v "${CWD}/SRPMS:${RPMBUILD}/SRPMS" \
