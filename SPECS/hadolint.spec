@@ -3,7 +3,7 @@
 
 Name:          hadolint
 Version:       2.12.0
-Release:       1
+Release:       1%{?dist}
 Summary:       A smarter Dockerfile linter
 License:       GPL 3.0
 URL:           https://github.com/%{gh_user}/%{name}
