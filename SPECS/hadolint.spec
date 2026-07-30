@@ -2,7 +2,7 @@
 %global gh_user hadolint
 
 Name:          hadolint
-Version:       2.13.1
+Version:       2.15.0
 Release:       1%{?dist}
 Summary:       A smarter Dockerfile linter
 License:       GPL 3.0
@@ -25,6 +25,9 @@ install -Dm0755 %{SOURCE0} %{buildroot}%{_bindir}/%{name}
 %{_bindir}/%{name}
 
 %changelog
+* Fri Jul 31 2026 Jamie Curnow <jc@jc21.com> 2.15.0-1
+- https://github.com/hadolint/hadolint/releases/tag/v2.15.0
+
 * Wed Sep 3 2025 Jamie Curnow <jc@jc21.com> 2.13.1-1
 - https://github.com/hadolint/hadolint/releases/tag/v2.13.1
 
